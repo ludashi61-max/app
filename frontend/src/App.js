@@ -1,7 +1,11 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { AuthProvider } from './context/AuthContext';
+import ProtectedRoute from './components/ProtectedRoute';
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import CostCalculator from './pages/CostCalculator';
 import IncomeSimulator from './pages/IncomeSimulator';
 import ScholarshipAnalyzer from './pages/ScholarshipAnalyzer';
@@ -12,20 +16,54 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
-      <div className="min-h-screen bg-white">
-        <Navbar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/calculator" element={<CostCalculator />} />
-          <Route path="/income" element={<IncomeSimulator />} />
-          <Route path="/scholarship" element={<ScholarshipAnalyzer />} />
-          <Route path="/methodology" element={<Methodology />} />
-          <Route path="/optimization" element={<OptimizationEngine />} />
-          <Route path="/future" element={<FutureScope />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <AuthProvider>
+      <BrowserRouter>
+        <div className="min-h-screen bg-white">
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/methodology" element={<Methodology />} />
+            <Route path="/future" element={<FutureScope />} />
+            
+            {/* Protected Routes */}
+            <Route
+              path="/calculator"
+              element={
+                <ProtectedRoute>
+                  <CostCalculator />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/income"
+              element={
+                <ProtectedRoute>
+                  <IncomeSimulator />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/scholarship"
+              element={
+                <ProtectedRoute>
+                  <ScholarshipAnalyzer />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/optimization"
+              element={
+                <ProtectedRoute>
+                  <OptimizationEngine />
+                </ProtectedRoute>
+              }
+            />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </AuthProvider>
   );
 }
 
