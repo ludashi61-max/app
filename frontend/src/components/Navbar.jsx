@@ -1,9 +1,21 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { GraduationCap } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { GraduationCap, User, LogOut } from 'lucide-react';
+import { useAuth } from '../context/AuthContext';
+import { Button } from './ui/button';
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from './ui/dropdown-menu';
 
 const Navbar = () => {
   const location = useLocation();
+  const navigate = useNavigate();
+  const { user, logout, isAuthenticated } = useAuth();
   
   const navLinks = [
     { path: '/', label: 'Home' },
@@ -14,6 +26,11 @@ const Navbar = () => {
     { path: '/optimization', label: 'Optimization' },
     { path: '/future', label: 'Future Scope' }
   ];
+
+  const handleLogout = () => {
+    logout();
+    navigate('/');
+  };
   
   return (
     <nav className="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
@@ -24,7 +41,7 @@ const Navbar = () => {
             <span className="text-xl font-bold text-gray-900">TIU Financial Optimizer</span>
           </Link>
           
-          <div className="hidden md:flex space-x-1">
+          <div className="hidden md:flex items-center space-x-1">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
@@ -38,6 +55,44 @@ const Navbar = () => {
                 {link.label}
               </Link>
             ))}
+            
+            <div className="ml-4 pl-4 border-l border-gray-200">
+              {isAuthenticated ? (
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="flex items-center gap-2">
+                      <User className="h-4 w-4" />
+                      <span>{user?.name || 'User'}</span>
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end">
+                    <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem className="text-sm text-gray-600">
+                      {user?.email}
+                    </DropdownMenuItem>
+                    <DropdownMenuSeparator />
+                    <DropdownMenuItem onClick={handleLogout} className="text-red-600">
+                      <LogOut className="h-4 w-4 mr-2" />
+                      Logout
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              ) : (
+                <div className="flex items-center gap-2">
+                  <Link to="/login">
+                    <Button variant="ghost" size="sm">
+                      Sign In
+                    </Button>
+                  </Link>
+                  <Link to="/signup">
+                    <Button size="sm" className="bg-blue-600 hover:bg-blue-700">
+                      Sign Up
+                    </Button>
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
         </div>
       </div>
