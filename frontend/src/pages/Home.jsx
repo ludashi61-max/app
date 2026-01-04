@@ -29,17 +29,17 @@ const Home = () => {
   ];
   
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+    <div className="min-h-screen page-bg" style={{ backgroundImage: "url('/images/home-sakura-fuji.jpg')" }}>
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-5xl font-bold text-white mb-6 hero-text">
             International Student Financial & Work-Life Optimizer for Japan
           </h1>
-          <p className="text-xl text-gray-600 mb-4 max-w-3xl mx-auto">
+          <p className="text-xl text-white/90 mb-4 max-w-3xl mx-auto hero-description">
             Data-driven decision support for international students at Tokyo International University
           </p>
-          <p className="text-lg text-gray-500 mb-8 max-w-2xl mx-auto">
+          <p className="text-lg text-white/80 mb-8 max-w-2xl mx-auto hero-description">
             A DSAI admissions project demonstrating applied problem-solving through financial modeling and constraint-based optimization
           </p>
           <div className="flex justify-center gap-4">
