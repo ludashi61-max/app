@@ -5,11 +5,11 @@ import { BookOpen, TrendingUp, AlertCircle, CheckCircle2 } from 'lucide-react';
 
 const Methodology = () => {
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen page-bg py-12" style={{ backgroundImage: "url('/images/methodology-zen-garden.jpg')" }}>
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Data & Methodology</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold text-white mb-4">Data & Methodology</h1>
+          <p className="text-lg text-white/90">
             Transparent explanation of formulas, assumptions, data sources, and limitations underlying this financial optimizer.
           </p>
         </div>

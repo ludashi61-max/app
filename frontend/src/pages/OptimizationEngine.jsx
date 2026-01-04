@@ -44,11 +44,11 @@ const OptimizationEngine = () => {
   const hasDeficit = deficit > 0;
   
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen page-bg py-12" style={{ backgroundImage: "url('/images/optimization-japanese-pattern.jpg')" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Optimization Logic & Recommendations</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold text-white mb-4">Optimization Logic & Recommendations</h1>
+          <p className="text-lg text-white/90">
             Rule-based decision engine that analyzes your financial situation and provides actionable, data-driven recommendations.
           </p>
         </div>

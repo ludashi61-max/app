@@ -51,11 +51,11 @@ const ScholarshipAnalyzer = () => {
   const COLORS = ['#ef4444', '#f97316', '#3b82f6', '#10b981', '#8b5cf6'];
   
   return (
-    <div className="min-h-screen bg-gray-50 py-12">
+    <div className="min-h-screen page-bg py-12" style={{ backgroundImage: "url('/images/scholarship-fuji-sunrise.jpg')" }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Scholarship Impact Analyzer</h1>
-          <p className="text-lg text-gray-600">
+          <h1 className="text-4xl font-bold text-white mb-4">Scholarship Impact Analyzer</h1>
+          <p className="text-lg text-white/90">
             Compare how different scholarship levels (30%, 50%, 80%, 100%) affect your total cost and monthly cash flow over 4 years.
           </p>
         </div>
