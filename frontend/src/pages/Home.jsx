@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Calculator, TrendingUp, BookOpen, Brain, ArrowRight } from 'lucide-react';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
+import DisclaimerModal from '../components/DisclaimerModal';
 
 const Home = () => {
   const features = [
@@ -30,6 +31,9 @@ const Home = () => {
   
   return (
     <div className="min-h-screen page-bg" style={{ backgroundImage: "url('/images/home-sakura-fuji.jpg')" }}>
+      {/* Disclaimer Modal - Shows once per session */}
+      <DisclaimerModal />
+
       {/* Hero Section */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center">
