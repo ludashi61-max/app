@@ -152,3 +152,27 @@ code {
     color: rgba(255, 255, 255, 0.9);
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
+
+/* Disclaimer Modal - Floating cherry blossom animation */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+        opacity: 0.4;
+    }
+    25% {
+        transform: translateY(-15px) translateX(10px) rotate(5deg);
+        opacity: 0.6;
+    }
+    50% {
+        transform: translateY(-8px) translateX(-5px) rotate(-3deg);
+        opacity: 0.5;
+    }
+    75% {
+        transform: translateY(-20px) translateX(8px) rotate(7deg);
+        opacity: 0.7;
+    }
+}
+
+.animate-float {
+    animation: float 15s ease-in-out infinite;
+}
